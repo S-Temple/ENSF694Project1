@@ -50,14 +50,25 @@ public class DLL {
     public void deleteNode(int key) 
     {
         if (head == null) return;
-        else if (head.data == key) {
-            
+        Node pointer = head;
+        while(pointer != null) {
+            if(pointer.data == key) {
+                pointer.previous.next = pointer.next;
+                return;
+            }
+            pointer = pointer.next;
         }
     }
     
     // Display the DLL
     public void display() 
-    {        
+    {
+        Node pointer = head;
+        while(pointer != null) {
+            System.out.print(pointer.data + " ");
+            pointer = pointer.next;
+        }
+        System.out.println();
     } 
     
     // Add any other parts needed

@@ -23,13 +23,15 @@ public class Stack {
 		pointer--;
 		int temp = array[pointer];
 		array[pointer] = 0;
+		return temp;
 	}
 	
 	// Display stack
 	public void display()
 	{
-		for(int i = pointer - 1; i >= 0; i--){
-			System.out.print(array[pointer] + " ");
+
+		for(int i = 0; i < array.length; i++){
+			System.out.print(array[i] + " ");
 		}
 		System.out.println();
 	}

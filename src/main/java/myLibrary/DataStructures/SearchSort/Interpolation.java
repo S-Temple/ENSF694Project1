@@ -3,7 +3,7 @@ package myLibrary.DataStructures.SearchSort;
 public class Interpolation {
 	
 	// Apply interpolation search
-	int interpolationSearchIterative(int[] array, int key)
+	public int interpolationSearchIterative(int[] array, int key)
 	{
 		int min = 0;
 		int max = array.length - 1;

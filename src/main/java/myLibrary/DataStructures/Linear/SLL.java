@@ -48,14 +48,14 @@ public class SLL {
     public void deleteNode(int key) {
         if (head == null) return;
         Node current = head;
-        int i = 1;
-        if(i == key){
-            head = head.next; // check for case where head is last node in list
-            return;
+        while(current.next != null){
+            if(key == current.next.data){
+                current.next = current.next.next;
+                return;
+            }
+            current = current.next;
         }
-        while(current.next != null) {
-
-        }
+        return;
     }
 
     // Display SLL

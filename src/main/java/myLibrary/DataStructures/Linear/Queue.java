@@ -20,18 +20,18 @@ public class Queue {
 	public int dequeue()
 	{
 		int temp = array[0];
-		for(int i = 0; i < pointer; i++){
+		for(int i = 0; i < pointer - 1; i++){
 			array[i] = array[i + 1];
 		}
-		array[pointer] = 0;
+		array[pointer - 1] = 0;
 		pointer--;
-
+		return temp;
 	}
 	
 	// Display queue
 	public void display()
 	{
-		for (int i = 0; i < pointer; i++){
+		for (int i = 0; i < array.length; i++){
 			System.out.print(array[i] + " ");
 		}
 		System.out.println();
