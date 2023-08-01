@@ -14,6 +14,7 @@ public class AdjacencyMatrix {
     public void addEdge(int source, int destination, int cost) 
     {
         matrix[source][destination] = cost;
+        matrix[destination][source] = cost;
     }
     
     // return adjacency matrix
