@@ -2,26 +2,24 @@ package myLibrary.GraphAlgo;
 
 import java.util.Arrays;
 
-public class BFS
-{
+public class BFS {
     AdjacencyMatrix adjMatrix;
-	// Define BFS
-    BFS(int size){
+
+    // Define BFS
+    BFS(int size) {
         adjMatrix = new AdjacencyMatrix(size);
     }
- 
-	// You can use either adjacency matrix or adjacency list to keep track of the graph
-	
-	// Add edge to graph
-    public void addEdge(int v,int w)
-    {
+
+    // You can use either adjacency matrix or adjacency list to keep track of the graph
+
+    // Add edge to graph
+    public void addEdge(int v, int w) {
         adjMatrix.addEdge(v, w, 1);
     }
- 
+
     // Apply BFS algorithm and display the nodes visited and the visit array values
     // See the sample output to create a proper format
-    public void BFS_Algo(int n)
-    {
+    public void BFS_Algo(int n) {
         myQueue queue = new myQueue(adjMatrix.size);
         myQueue visited = new myQueue(adjMatrix.size);
         boolean[] isVisited = new boolean[adjMatrix.size];
@@ -46,6 +44,6 @@ public class BFS
         System.out.println("Visited Nodes: " + Arrays.toString(isVisited));
 
     }
-	
-	// Add any other parts needed
+
+    // Add any other parts needed
 }

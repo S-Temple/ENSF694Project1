@@ -15,18 +15,25 @@ public class SLL {
 
     // Create node
     private Node head;
+    private int size;
+
+    SLL(){
+        size = 0;
+    }
 
     // Add node to SLL
     public void addNode(int data) {
         Node newNode = new Node(data);
         if (head == null) {
             head = newNode;
+            size++;
         } else {
             Node current = head;
             while (current.next != null) {
                 current = current.next;
             }
             current.next = newNode;
+            size++;
         }
     }
 
@@ -48,14 +55,15 @@ public class SLL {
     public void deleteNode(int key) {
         if (head == null) return;
         Node current = head;
-        while(current.next != null){
-            if(key == current.next.data){
+        while (current.next != null) {
+            if (key == current.next.data) {
                 current.next = current.next.next;
+                size--;
                 return;
             }
             current = current.next;
+
         }
-        return;
     }
 
     // Display SLL
@@ -70,5 +78,8 @@ public class SLL {
 
     // Add any other parts needed
 
+    public int length(){
+        return size;
+    }
 }
 
