@@ -41,6 +41,7 @@ public class BST {
 
     // Breadth first traversal - recursive OR iterative
     public void breadthFirstTraversal(Node root) {
+        if (root == null) return;
         BST_NodeQueue queue = new BST_NodeQueue(100);
         queue.enqueue(root);
         Node current;

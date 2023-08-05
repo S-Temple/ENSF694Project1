@@ -19,9 +19,10 @@ public class DLL {
     Node head;
     int size;
 
-    DLL(){
+    DLL() {
         size = 0;
     }
+
     // Add node
     public void addNode(int data) {
         if (head == null) {
@@ -78,7 +79,7 @@ public class DLL {
     }
 
     // Add any other parts needed
-    public int length(){
+    public int length() {
         return size;
     }
 }

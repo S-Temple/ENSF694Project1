@@ -26,16 +26,15 @@ public class DFS {
         boolean[] isVisited = new boolean[adjMatrix.size];
 
         stack.push(v);
-        visited.push(v);
         isVisited[v] = true;
 
         while (!stack.isEmpty()) {
             int currentNode = stack.pop();
+            visited.push(currentNode);
 
             for (int i = 0; i < adjMatrix.size; i++) {
                 if (adjMatrix.matrix[currentNode][i] == 1 && !isVisited[i]) {
                     stack.push(i);
-                    visited.push(i);
                     isVisited[i] = true;
                 }
             }

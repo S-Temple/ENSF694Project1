@@ -13,7 +13,7 @@ public class Stack {
 
     // Push doubles size of array if out of memory
     public void push(int data) {
-        if(pointer >= array.length) array = increaseSize();
+        if (pointer >= array.length) array = increaseSize();
         array[pointer] = data;
         pointer++;
     }
@@ -21,7 +21,7 @@ public class Stack {
     // Pop returns -1 when empty
     // instead could return Int max or min instead
     public int pop() {
-        if(pointer <= 0) return -1;
+        if (pointer <= 0) return -1;
         pointer--;
         int temp = array[pointer];
         array[pointer] = 0;
@@ -44,9 +44,9 @@ public class Stack {
 
     // Add any other parts needed
 
-    public int[] increaseSize(){
+    public int[] increaseSize() {
         int[] bigger = new int[array.length * 2];
-        for(int i = 0; i < array.length; i++){
+        for (int i = 0; i < array.length; i++) {
             bigger[i] = array[i];
         }
         return bigger;

@@ -16,8 +16,8 @@ public class BST_NodeQueue {
 
     // Enqueue
     public void enqueue(Node data) {
-        if(size == array.length) array = increaseSize();
-        if(queuePointer == array.length) queuePointer = 0;
+        if (size == array.length) array = increaseSize();
+        if (queuePointer == array.length) queuePointer = 0;
         array[queuePointer] = data;
         queuePointer++;
         size++;
@@ -25,8 +25,8 @@ public class BST_NodeQueue {
 
     // Dequeue
     public Node dequeue() {
-        if(size == 0) return null;
-        if(dequeuePointer == array.length) dequeuePointer = 0;
+        if (size == 0) return null;
+        if (dequeuePointer == array.length) dequeuePointer = 0;
         Node temp = array[dequeuePointer];
         array[dequeuePointer] = null;
         dequeuePointer++;
@@ -34,9 +34,9 @@ public class BST_NodeQueue {
         return temp;
     }
 
-    public Node[] increaseSize(){
+    public Node[] increaseSize() {
         Node[] bigger = new Node[array.length * 2];
-        for(int i = 0;  i < array.length; i++) {
+        for (int i = 0; i < array.length; i++) {
             bigger[i] = array[i];
         }
         return bigger;

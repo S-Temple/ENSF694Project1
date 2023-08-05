@@ -14,37 +14,38 @@ public class Dijkstra {
         visited[source] = true;
 
         int pointer = source;
-        int traveled = 0; // issues here
-        while (!areAllTrue(visited)) {
-            // add neighbours to pathCost
-            for (int i = 0; i < numNodes; i++) {
-                if (graph[pointer][i] != 0 && pathCosts[i] > traveled + graph[pointer][i]) {
-                    pathCosts[i] = traveled + graph[pointer][i];
-                }
-            }
-            // pick lowest non-visited path
-            int low = Integer.MAX_VALUE;
-            for (int i = 0; i < numNodes; i++) {
-                if (pathCosts[i] < low && !visited[i]) {
-                    pointer = i;
-                    low = pathCosts[i];
-                }
-            }
-            if (low == Integer.MAX_VALUE) break;
+        while (true) {
             visited[pointer] = true;
-            traveled = pathCosts[pointer];
+
+            // Update neighboring nodes' path costs
+            for (int i = 0; i < numNodes; i++) {
+                if (graph[pointer][i] != 0 && !visited[i]) {
+                    int newCost = pathCosts[pointer] + graph[pointer][i];
+                    if (newCost < pathCosts[i]) {
+                        pathCosts[i] = newCost;
+                    }
+                }
+            }
+
+            // Find the next unvisited node with the lowest path cost
+            int minCost = Integer.MAX_VALUE;
+            pointer = -1;
+            for (int i = 0; i < numNodes; i++) {
+                if (!visited[i] && pathCosts[i] < minCost) {
+                    minCost = pathCosts[i];
+                    pointer = i;
+                }
+            }
+
+            if (pointer == -1) break;
         }
+
         for (int i = 0; i < numNodes; i++) {
-            if (pathCosts[i] == Integer.MAX_VALUE) System.out.println(source + " to " + i + " is impossible");
-            else System.out.println("Distance from " + source + " to " + i + " is " + pathCosts[i]);
+            if (pathCosts[i] == Integer.MAX_VALUE) {
+                System.out.println(source + " to " + i + " is impossible");
+            } else {
+                System.out.println("Distance from " + source + " to " + i + " is " + pathCosts[i]);
+            }
         }
-
-
-    }
-
-    // Add any other parts needed
-    public static boolean areAllTrue(boolean[] array) {
-        for (boolean b : array) if (!b) return false;
-        return true;
     }
 }

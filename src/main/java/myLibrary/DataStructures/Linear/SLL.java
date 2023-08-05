@@ -17,7 +17,7 @@ public class SLL {
     private Node head;
     private int size;
 
-    SLL(){
+    SLL() {
         size = 0;
     }
 
@@ -78,7 +78,7 @@ public class SLL {
 
     // Add any other parts needed
 
-    public int length(){
+    public int length() {
         return size;
     }
 }
